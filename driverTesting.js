@@ -1,7 +1,6 @@
 let functions = require('./CSC404_HW1Convert')
+let prompt = require('prompt');
 
-var prompt = require('prompt');
-//schema for user input
 var schema = 
 {
    properties: 
@@ -21,11 +20,8 @@ var schema =
      homework3: { type: 'number'},
      test1: { type: 'number'},
      test2: { type: 'number'},
-     att1: { type: 'number'},
-     att2: { type: 'number'},
-     att3: { type: 'number'},
-     att4: { type: 'number'},
-     att5: { type: 'number'}
+     att: { type: 'number',},
+ 
    }
 };
 
@@ -48,10 +44,6 @@ prompt.get(schema, function (err, result)
    console.log(' test1:', result.test1);
    console.log(' test2:', result.test2);
    //attendance
-   console.log(' att1:', result.att1);
-   console.log(' att2:', result.att2);
-   console.log(' att3:', result.att3);
-   console.log(' att4:', result.att4);
-   console.log(' att5:', result.att5);
+   console.log(' attendance:', result.att);
 });
 
