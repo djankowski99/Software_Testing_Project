@@ -1,3 +1,5 @@
+
+
 function convert(hw1, hw2, hw3, exam1,exam2){
     // calculate homework grades
     hw1 = hw1 * .10; 
@@ -28,11 +30,6 @@ function convert(hw1, hw2, hw3, exam1,exam2){
     });
     console.log(finalLetterGrade);
     return finalLetterGrade; 
+}
 
-
-
-
-    });
-    console.log(avgGrade); 
-    console.log(finalLetterGrade);
-    return finalLetterGrade; 
+module.exports.convert = convert
