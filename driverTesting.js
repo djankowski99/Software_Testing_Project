@@ -48,7 +48,7 @@ prompt.get(schema, function (err, result)
    console.log(' attendance:', result.att);
 });
 
-var grade = convert.convert(homework1,homework2,homework3,test1,test2,att)
-var finaleGrade = roundup.roundup(grade)
+var grade = convert.convert(schema.homework1,schema.homework2,schema.homework3,schema.test1,schema.test2,schema.att)
+var finaleGrade = roundup.Round_Up(grade)
 console.log(finaleGrade)
 
