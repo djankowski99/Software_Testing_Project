@@ -46,9 +46,10 @@ prompt.get(schema, function (err, result)
    console.log(' test2:', result.test2);
    //attendance
    console.log(' attendance:', result.att);
-});
+   var grade = convert.convert(schema.homework1,schema.homework2,schema.homework3,schema.test1,schema.test2,schema.att)
+   var finaleGrade = roundup.Round_Up(grade)
+   console.log("Final Grade: " + finaleGrade + " " + grade)
+  });
 
-var grade = convert.convert(schema.homework1,schema.homework2,schema.homework3,schema.test1,schema.test2,schema.att)
-var finaleGrade = roundup.Round_Up(grade)
-console.log(finaleGrade)
+
 
