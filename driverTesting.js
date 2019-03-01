@@ -1,4 +1,5 @@
-let functions = require('./CSC404_HW1Convert')
+let convert = require('./Convert')
+let roundup = require('./RoundUp.js')
 let prompt = require('prompt');
 
 var schema = 
@@ -46,4 +47,8 @@ prompt.get(schema, function (err, result)
    //attendance
    console.log(' attendance:', result.att);
 });
+
+var grade = convert.convert(homework1,homework2,homework3,test1,test2,att)
+var finaleGrade = roundup.roundup(grade)
+console.log(finaleGrade)
 
