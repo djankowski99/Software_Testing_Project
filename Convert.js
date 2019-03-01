@@ -1,17 +1,7 @@
 
 
-function convert(hw1, hw2, hw3, exam1,exam2){
-    // calculate homework grades
-    hw1 = hw1 * .10; 
-    hw2 = hw2 * .10;
-    hw3 = hw2 * .10;
-    // calculate exam grades 
-    exam1 = exam1 * .35; 
-    exam2 = exam2 * .35; 
-
-     // average of 5 student grades  
-    var avgGrade = (hw1 + hw2 + hw3 + 
-                      exam1 + exam2); 
+function convert(avgGrade){
+ 
 
     let finalLetterGrade = "F"; 
 
@@ -30,6 +20,10 @@ function convert(hw1, hw2, hw3, exam1,exam2){
     });
     console.log(finalLetterGrade);
     return finalLetterGrade; 
+}
+
+function finalLetterGrade(numberGrade){
+
 }
 
 

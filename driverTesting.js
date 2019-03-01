@@ -2,54 +2,59 @@ let convert = require('./Convert')
 let roundup = require('./RoundUp.js')
 let prompt = require('prompt');
 
-var schema = 
+var schema =
 {
-   properties: 
-   {
-     name: 
-     {
-       pattern: /^[a-zA-Z\s\-]+$/,
-       message: 'Name must only be letters, spaces, or dashes',
-       required: true
-     },
-     studentid:
-     {
+  properties:
+  {
+    homework1: { type: 'number' },
+    homework2: { type: 'number' },
+    homework3: { type: 'number' },
+    exam1: { type: 'number' },
+    exam2: { type: 'number' },
+    attendance: { type: 'number', },
 
-     },
-     homework1: { type: 'number'},
-     homework2: { type: 'number'},
-     homework3: { type: 'number'},
-     test1: { type: 'number'},
-     test2: { type: 'number'},
-     att: { type: 'number',},
- 
-   }
+  }
 };
 
-//start the prompt
 prompt.start();
 
-//get the properties from the user
-prompt.get(schema, function (err, result) 
-{
-   //log results from the user
-   console.log('Command-line input received:');
-   //user info
-   console.log(' name:', result.name);
-   console.log(' studentid:', result.studentid);
-   //homework grades
-   console.log(' homework1:', result.homework1);
-   console.log(' homework2:', result.homework2);
-   console.log(' homework3:', result.homework3);
-   //test grades
-   console.log(' test1:', result.test1);
-   console.log(' test2:', result.test2);
-   //attendance
-   console.log(' attendance:', result.att);
-   var grade = convert.convert(schema.homework1,schema.homework2,schema.homework3,schema.test1,schema.test2,schema.att)
-   var finaleGrade = roundup.Round_Up(grade)
-   console.log("Final Grade: " + finaleGrade + " " + grade)
-  });
+//Finding all of the homework and exam grades from the user
+prompt.get(schema, function (err, result) {
+  console.log(' Homework1 Number Grade:', result.homework1);
+  console.log(' Homework2 Number Grade:', result.homework2);
+  console.log(' Homework3 Number Grade:', result.homework3);
+  console.log(' Test1 Number Grade:', result.exam1);
+  console.log(' Test2 Number Grade:', result.exam2);
+  console.log(' attendanceendance:', result.attendance);
+
+  //receive homework grades
+  homework1 = result.homework1
+  homework2 = result.homework2
+  homework3 = result.homework3
+  //receive exam grades
+  exam1 = result.exam1
+  exam2 = result.exam2
+  attendance = result.attendance
+  //weight homework grades
+  homework1 = homework1 * .10;
+  homework2 = homework2 * .10;
+  homework3 = homework3 * .10;
+  // weight exam grades 
+  exam1 = exam1 * .35;
+  exam2 = exam2 * .35;
+
+  // average of 5 student grades  
+  var avgGrade = (homework1 + homework2 + homework3 +
+    exam1 + exam2);
+  // output average grade before rounding                   
+  console.log(avgGrade)
+  // output rounded final number grade
+  var finalNumberGrade = roundup.Round_Up(attendance, avgGrade)
+  console.log(finalNumberGrade)
+  //output final letter grade
+  var grade = convert.convert(finalNumberGrade)
+  console.log("Final Grade: " + finalNumberGrade + " " + grade)
+});
 
 
 

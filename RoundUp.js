@@ -5,7 +5,7 @@ function Round_Up(attendance, grade){
     if(attendance >= 4 && grade % .5 == 0 && grade % 10 != 0){
         grade = Math.round(grade);
     }
-    else{
+    else if(attendance >= 4){
         grade -= .1;
     }
     return grade;
